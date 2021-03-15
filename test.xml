@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 <ModulePrefs
-title="MrAddon example of JIRA Server Dashboard Gadget"
-author="Raul Pelaez raulpelaez@mraddon.com www.mraddon.com"
-thumbnail="https://route_to_.png"
-screenshot="https://route_to.png"
-description="JIRA Server Dashboard Description">
- 
-<Require feature="minimessage" />
+title="Quick Searches"
+author="David Melo david.melo@fastpbx.com"
+thumbnail="https://www.fastpbx.com/assets/img/logo-dark.png"
+screenshot="https://www.fastpbx.com/assets/img/logo-dark.png"
+description="Quick Searches">
 <Require feature="dynamic-height" />
-<Require feature="auth-refresh"/>
-<Require feature="oauthpopup" />
 <Require feature="setprefs" />
 <Require feature="settitle" />
 <Require feature="core" />
 <Require feature="core.io" />
 <Require feature="views" />
-<Optional feature="atlassian.util" />
-<Optional feature="gadget-directory">
-<Param name="categories">Other</Param>
-</Optional>
+ <Optional feature="atlassian.util" />
+ <Optional feature="gadget-directory">
+  <Param name="categories">Other</Param>
+ </Optional>
 </ModulePrefs>
  
 <Content type="html">
@@ -27,19 +23,12 @@ description="JIRA Server Dashboard Description">
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script>
 function refresh() {
-console.log('refresh')
+console.log('refresh');
 }
- 
+gadgets.window.adjustHeight() 
 refresh();
 </script>
-<table>
-<tr>
-<td><b>ETH</b></td>
-<td><font align="right" color="#7c06b7">
-<div id="eth">€</div>
-</font></td>
-</tr>
-</table>
+<input type="text" placeholder="hello">
 ]]>
 </Content>
 </Module>
