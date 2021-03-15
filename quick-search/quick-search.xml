@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
   <ModulePrefs
-    title="Quick Search"
+    title="Quick Search v1"
     author="FastPBX"
-    thumbnail="https://www.fastpbx.com/"
+    thumbnail="https://www.fastpbx.com/assets/img/logo-dark.png"
     description="FastPBX Issue Quick Search">
 
     <Require feature="minimessage" />
