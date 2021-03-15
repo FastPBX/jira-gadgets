@@ -12,18 +12,28 @@
   </ModulePrefs>
   
   <Content type="html"><![CDATA[
-    <link rel="stylesheet"
-      href="https://raw.githubusercontent.com/FastPBX/jira-gadgets/main/quick-search/quick-search.css">
+    
+<style>
+.fsc {
+  border:1px solid red;
+}
+</style>
 
-    <div class="fsc">
-      <div class="fscl">
-        <div>Search By DID Number:</div>
-        <div><input id="didquery" class="fsci" type="text"/></div>
-        <div><button class="fsci" onClick="doNumbersSearch()">Find Issues</button></div>
-      </div>
-    </div>
+<script>
+  gadgets.window.adjustHeight();
+  function doNumbersSearch () {
+    var number = "800";
+    window.location.href = "https://tickets-internal.fpool.org/issues/?jql=%22Number(s)%20Affected%20Preview%22%20~%20%22*"+number+"*%22";
+  }
+</script>
 
-    <script type="text/javascript"
-      src="https://raw.githubusercontent.com/FastPBX/jira-gadgets/main/quick-search/quick-search.js"></script>
+<div class="fsc">
+  <div class="fscl">
+    <div>Search By DID Number:</div>
+    <div><input id="didquery" class="fsci" type="text"/></div>
+    <div><button class="fsci" onClick="doNumbersSearch()">Find Issues</button></div>
+  </div>
+</div>
+
   ]]></Content>
 </Module>
