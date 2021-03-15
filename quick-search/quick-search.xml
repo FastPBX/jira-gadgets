@@ -15,14 +15,14 @@
     
 <style>
 .fsc {
-  border:1px solid blue;
+  border:1px solid green;
 }
 </style>
 
 <script>
 
 var msg = new gadgets.MiniMessage();
-var loadMessage = msg.createStaticMessage("loading...");
+//var loadMessage = msg.createStaticMessage("loading...");
 
 var url = "https://tickets-internal.fpool.org/rest/api/2/search?jql=%22Number(s)%20Affected%20Preview%22%20~%20%22*800*%22";
 
@@ -36,7 +36,7 @@ function handleResponse(obj) {
   
   console.log(obj);
 
-  msg.dismissMessage(loadMessage);
+  //msg.dismissMessage(loadMessage);
   gadgets.window.adjustHeight();
 }
 
