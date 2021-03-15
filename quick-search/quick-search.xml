@@ -20,18 +20,72 @@
 </style>
 
 <script>
+
+var msg = new gadgets.MiniMessage();
+var loadMessage = msg.createStaticMessage("loading...");
+
+var url = "https://tickets-internal.fpool.org/rest/api/2/search?jql=%22Number(s)%20Affected%20Preview%22%20~%20%22*800*%22";
+
   gadgets.window.adjustHeight();
   function doNumbersSearch () {
     var number = "800";
     window.location.href = "https://tickets-internal.fpool.org/issues/?jql=%22Number(s)%20Affected%20Preview%22%20~%20%22*"+number+"*%22";
   }
+
+function handleResponse(obj) {
+  
+  console.log(obj);
+
+  msg.dismissMessage(loadMessage);
+  gadgets.window.adjustHeight();
+}
+
+function fetchIssues() {
+  params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+  gadgets.io.makeRequest(url, handleResponse, {});
+}
+
+function isElement(node) {
+  return node.nodeType == 1;
+}
+
+function renderJiraIssues(jiraIssues) {
+  var html =
+    "<div class='title'>" +
+    jiraIssues.title +
+    "</div>";
+  for (var i = 0; i < jiraIssues.items.length; i++) {
+    var item = jiraIssues.items[i];
+    html +=
+      "<div class='jira-item'>" +
+      "<a target='_blank' href='" + item.link + "'>" +
+      item.name +
+      "</a>";
+    if (showDate) {
+      html +=
+        "<div class='jira-item-date'>" +
+        item.date +
+        "</div>";
+    }
+    if (showSummary) {
+      html +=
+        "<div class='jira-item-desc'>" +
+        item.desc +
+        "</div>";
+    }
+    html += "</div>";
+  }
+
+  document.getElementById('content_div').innerHTML = html;
+}
+
 </script>
 
 <div class="fsc">
   <div class="fscl">
     <div>Search By DID Number:</div>
     <div><input id="didquery" class="fsci" type="text"/></div>
-    <div><button class="fsci" onClick="doNumbersSearch()">Find Issues</button></div>
+    <div><button class="fsci" onClick="fetchIssues()">Find Issues</button></div>
   </div>
 </div>
 
