@@ -6,7 +6,6 @@ author="David Melo david.melo@fastpbx.com"
 thumbnail="https://www.fastpbx.com/assets/img/logo-dark.png"
 screenshot="https://www.fastpbx.com/assets/img/logo-dark.png"
 description="Quick Searches">
-<Require feature="dynamic-height" />
 <Require feature="setprefs" />
 <Require feature="settitle" />
 <Require feature="core" />
